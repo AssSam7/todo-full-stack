@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/node-12.3.1-green">
   <img src="https://img.shields.io/badge/express-v4.17.1-orange">
   <img src="https://img.shields.io/badge/mongodb-v2.0.4-brightgreen">
-  <a href="https://twitter.com/mamalasa" target="_blank">
+  <a href="https://twitter.com/malsaslam97" target="_blank">
     <img alt="Twitter: malsaslam97" src="https://img.shields.io/twitter/follow/malsaslam97.svg?style=social" />
   </a>
 </p>

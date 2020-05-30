@@ -15,11 +15,12 @@
 ### 🏠 [Homepage]
 server.js
 
-## Usage
-
-```sh
-np
-```
+### ✨ [Features]
+- Reading requests and sending response
+- Creating a todo task
+- Editing a todo task
+- Deleting a todo task
+- Load data dynamically 
 
 ## Author
 * Twitter : [@malsaslam97](https://twitter.com/malsaslam97)
@@ -27,7 +28,6 @@ np
 * LinkedIn: [Aslam Mohammed](https://www.linkedin.com/in/malsaslam97/)
 
 ## Show your support
-
 Give a ⭐️ if this application has some credibility!
 
 ***

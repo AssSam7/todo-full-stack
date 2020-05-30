@@ -22,17 +22,13 @@ np
 ```
 
 ## Author
-<p style="dispay: flex; height: 100vh; align-items: center">
-  <img src="https://img.icons8.com/fluent/24/000000/twitter.png"/>
-  <a href="https://twitter.com/malsaslam97">malsaslam97</a>
-</p>
 * Twitter : [@malsam97](https://twitter.com/malsaslam97)
 * Github: [@AssSam7](https://github.com/AssSam7)
 * LinkedIn: [Aslam Mohammed](https://www.linkedin.com/in/malsaslam97/)
 
 ## Show your support
 
-Give a ⭐️ if this project helped you!
+Give a ⭐️ if this application has some credibility!
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_ and edited for improvisations

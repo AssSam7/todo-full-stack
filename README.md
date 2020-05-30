@@ -22,8 +22,11 @@ np
 ```
 
 ## Author
-
-* Twitter: [@malsam97](https://twitter.com/malsaslam97)
+<p style="dispay: flex; height: 100vh; align-items: center">
+  <img src="https://img.icons8.com/fluent/24/000000/twitter.png"/>
+  <a href="https://twitter.com/malsaslam97">malsaslam97</a>
+</p>
+* Twitter : [@malsam97](https://twitter.com/malsaslam97)
 * Github: [@AssSam7](https://github.com/AssSam7)
 * LinkedIn: [Aslam Mohammed](https://www.linkedin.com/in/malsaslam97/)
 

@@ -22,6 +22,11 @@ server.js
 - Deleting a todo task
 - Load data dynamically 
 
+### 🔥 [Live]
+This app is deployed to heroku on the following bank
+
+**Url**: https://todo-js-node.herokuapp.com/
+
 ## Author
 * Twitter : [@malsaslam97](https://twitter.com/malsaslam97)
 * Github: [@AssSam7](https://github.com/AssSam7)

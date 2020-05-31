@@ -5,6 +5,10 @@ let sanitizeHtml = require("sanitize-html");
 
 let app = express();
 let db;
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
 
 // Making our app able to access other folders
 app.use(express.static("public"));
@@ -18,8 +22,8 @@ mongodb.connect(
   (err, client) => {
     db = client.db();
 
-    // Making the app listen on the port no. 3000
-    app.listen(3000);
+    // Making the app listen on the port no. 3000 local and remote dynamically
+    app.listen(port);
   }
 );
 

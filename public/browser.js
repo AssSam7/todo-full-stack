@@ -1,22 +1,38 @@
-document.addEventListener("click", (e) => {
+document.addEventListener("click", function (e) {
+  // Delete Feature
+  if (e.target.classList.contains("delete-me")) {
+    if (confirm("Do you really want to delete this item permanently?")) {
+      axios
+        .post("/delete-item", { id: e.target.getAttribute("data-id") })
+        .then(function () {
+          e.target.parentElement.parentElement.remove();
+        })
+        .catch(function () {
+          console.log("Please try again later.");
+        });
+    }
+  }
+
+  // Update Feature
   if (e.target.classList.contains("edit-me")) {
-    let newItem = prompt(
-      "Enter the new todo list item",
-      e.target.parentElement.parentElement.querySelector(".item-text")
-        .textContent
+    let userInput = prompt(
+      "Enter your desired new text",
+      e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
     );
-    if (newItem) {
+    if (userInput) {
       axios
         .post("/update-item", {
-          text: newItem,
+          text: userInput,
           id: e.target.getAttribute("data-id"),
         })
-        .then(() => {
+        .then(function () {
           e.target.parentElement.parentElement.querySelector(
             ".item-text"
-          ).innerHTML = newItem;
+          ).innerHTML = userInput;
         })
-        .catch((err) => {});
+        .catch(function () {
+          console.log("Please try again later.");
+        });
     }
   }
 });

@@ -25,7 +25,7 @@ server.js
 ### 🔥 [Live]
 This app is deployed to heroku on the following bank
 
-**Url**: https://todo-js-node.herokuapp.com/
+**URL**: https://todo-js-node.herokuapp.com/
 
 ## Author
 * Twitter : [@malsaslam97](https://twitter.com/malsaslam97)

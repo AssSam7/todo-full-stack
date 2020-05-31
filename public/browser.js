@@ -1,3 +1,48 @@
+// Initial page rendering
+let htmlDOM = items
+  .map((item) => {
+    return `
+      <li class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+        <span class="item-text">${item.text}</span>
+        <div>
+          <button data-id="${item._id}" class="edit-me btn btn-secondary btn-sm mr-1">Edit</button>
+          <button data-id="${item._id}" class="delete-me btn btn-danger btn-sm">Delete</button>
+        </div>
+      </li>
+    `;
+  })
+  .join("");
+document.getElementById("item-list").insertAdjacentHTML("beforeend", htmlDOM);
+
+// Asynchronously creating the ToDo item
+let createField = document.querySelector("#create-field");
+
+document.getElementById("create-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  axios
+    .post("/create-item", { text: createField.value })
+    .then(function (response) {
+      // Create the HTML DOM for new item
+      let createDOM = `
+        <li id="item-list" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+        <span class="item-text">${response.data.text}</span>
+        <div>
+          <button data-id="${response.data._id}" class="edit-me btn btn-secondary btn-sm mr-1">Edit</button>
+          <button data-id="${response.data._id}" class="delete-me btn btn-danger btn-sm">Delete</button>
+        </div>
+        </li>
+      `;
+      document
+        .querySelector("#item-list")
+        .insertAdjacentHTML("beforeend", createDOM);
+      createField.value = "";
+      createField.focus();
+    })
+    .catch(function () {
+      console.log("Please try again later.");
+    });
+});
+
 document.addEventListener("click", function (e) {
   // Delete Feature
   if (e.target.classList.contains("delete-me")) {

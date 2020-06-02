@@ -54,12 +54,27 @@ app.get("/", passwordProtected, (req, res) => {
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Simple To-Do App</title>
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+          <style>
+            body {
+              background: #83a4d4;  /* fallback for old browsers */
+              background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4);  /* Chrome 10-25, Safari 5.1-6 */
+              background: linear-gradient(to right, #b6fbff, #83a4d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            }
+
+            #input-form{
+              background: rgba(255, 255, 255, 0.3);
+            }
+
+            #item-list li {
+              background: rgba(255, 255, 255, 0.5);
+            }
+          </style>
         </head>
         <body>
           <div class="container">
-            <h1 class="display-4 text-center py-1">To-Do App</h1>
+            <h1 class="display-4 text-center py-1" style="color: #222">To-Do App</h1>
             
-            <div class="jumbotron p-3 shadow-sm">
+            <div id="input-form" class="jumbotron p-3 shadow-sm">
               <form id="create-form" action="/create-item" method="POST">
                 <div class="d-flex align-items-center">
                   <input id="create-field" name="item" autofocus autocomplete="off" class="form-control mr-3" type="text" style="flex: 1;">

@@ -19,28 +19,36 @@ let createField = document.querySelector("#create-field");
 
 document.getElementById("create-form").addEventListener("submit", (e) => {
   e.preventDefault();
-  axios
-    .post("/create-item", { text: createField.value })
-    .then(function (response) {
-      // Create the HTML DOM for new item
-      let createDOM = `
-        <li id="item-list" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
-        <span class="item-text">${response.data.text}</span>
-        <div>
-          <button data-id="${response.data._id}" class="edit-me btn btn-secondary btn-sm mr-1">Edit</button>
-          <button data-id="${response.data._id}" class="delete-me btn btn-danger btn-sm">Delete</button>
-        </div>
-        </li>
-      `;
-      document
-        .querySelector("#item-list")
-        .insertAdjacentHTML("beforeend", createDOM);
-      createField.value = "";
-      createField.focus();
-    })
-    .catch(function () {
-      console.log("Please try again later.");
-    });
+  let texts = items.map((item) => item.text);
+  if (!texts.includes(createField.value) && createField.value !== "") {
+    axios
+      .post("/create-item", { text: createField.value })
+      .then(function (response) {
+        console.log(texts);
+        // Create the HTML DOM for new item
+        let createDOM = `
+          <li id="item-list" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+          <span class="item-text">${response.data.text}</span>
+          <div>
+            <button data-id="${response.data._id}" class="edit-me btn btn-secondary btn-sm mr-1">Edit</button>
+            <button data-id="${response.data._id}" class="delete-me btn btn-danger btn-sm">Delete</button>
+          </div>
+          </li>
+          `;
+        document
+          .querySelector("#item-list")
+          .insertAdjacentHTML("beforeend", createDOM);
+        createField.value = "";
+        createField.focus();
+      })
+      .catch(function () {
+        console.log("Please try again later.");
+      });
+  } else {
+    window.alert("Sorry, Please try again!");
+    createField.value = "";
+    createField.focus();
+  }
 });
 
 document.addEventListener("click", function (e) {

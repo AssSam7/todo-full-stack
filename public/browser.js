@@ -19,8 +19,11 @@ let createField = document.querySelector("#create-field");
 
 document.getElementById("create-form").addEventListener("submit", (e) => {
   e.preventDefault();
-  let texts = items.map((item) => item.text);
-  if (!texts.includes(createField.value) && createField.value !== "") {
+  let texts = items.map((item) => item.text.toLowerCase());
+  if (
+    !texts.includes(createField.value.toLowerCase()) &&
+    createField.value !== ""
+  ) {
     axios
       .post("/create-item", { text: createField.value })
       .then(function (response) {

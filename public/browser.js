@@ -22,7 +22,8 @@ document.getElementById("create-form").addEventListener("submit", (e) => {
   let texts = items.map((item) => item.text.toLowerCase());
   if (
     !texts.includes(createField.value.toLowerCase()) &&
-    createField.value !== ""
+    createField.value !== "" &&
+    createField.value.match(/^[a-zA-Z0-9]+/i)
   ) {
     axios
       .post("/create-item", { text: createField.value })

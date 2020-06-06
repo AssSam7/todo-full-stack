@@ -19,16 +19,19 @@ let createField = document.querySelector("#create-field");
 
 document.getElementById("create-form").addEventListener("submit", (e) => {
   e.preventDefault();
-  let texts = items.map((item) => item.text.toLowerCase());
+  // DOM List
+  let toDoDOMLists = document.querySelectorAll(".list-group-item > .item-text");
+  const toDoLists = Array.from(toDoDOMLists).map((list) =>
+    list.textContent.toLowerCase()
+  );
   if (
-    !texts.includes(createField.value.toLowerCase()) &&
+    !toDoLists.includes(createField.value.toLowerCase()) &&
     createField.value !== "" &&
     createField.value.match(/^[a-zA-Z0-9]+/i)
   ) {
     axios
       .post("/create-item", { text: createField.value })
       .then(function (response) {
-        console.log(texts);
         // Create the HTML DOM for new item
         let createDOM = `
           <li id="item-list" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
@@ -72,30 +75,39 @@ document.addEventListener("click", function (e) {
 
   // Update Feature
   if (e.target.classList.contains("edit-me")) {
+    // DOM List
+    let toDoDOMLists = document.querySelectorAll(
+      ".list-group-item > .item-text"
+    );
+    const toDoLists = Array.from(toDoDOMLists).map((list) =>
+      list.textContent.toLowerCase()
+    );
     let userInput = prompt(
       "Enter your desired new text",
       e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
     );
-    if (
-      userInput &&
-      userInput.value !== "" &&
-      userInput.value.match(/^[a-zA-Z0-9]+/i)
-    ) {
-      axios
-        .post("/update-item", {
-          text: userInput,
-          id: e.target.getAttribute("data-id"),
-        })
-        .then(function () {
-          e.target.parentElement.parentElement.querySelector(
-            ".item-text"
-          ).innerHTML = userInput;
-        })
-        .catch(function () {
-          console.log("Please try again later.");
-        });
-    } else {
-      window.alert("Sorry, Please try again!");
+    if (userInput) {
+      if (
+        userInput !== "" &&
+        !toDoLists.includes(userInput.toLowerCase()) &&
+        userInput.match(/^[a-zA-Z0-9]+/i)
+      ) {
+        axios
+          .post("/update-item", {
+            text: userInput,
+            id: e.target.getAttribute("data-id"),
+          })
+          .then(function () {
+            e.target.parentElement.parentElement.querySelector(
+              ".item-text"
+            ).innerHTML = userInput;
+          })
+          .catch(function () {
+            console.log("Please try again later.");
+          });
+      } else {
+        window.alert("Sorry, Please try again!");
+      }
     }
   }
 });

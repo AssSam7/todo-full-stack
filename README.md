@@ -27,10 +27,15 @@ This app is deployed to heroku on the following bank
 
 **URL**: https://todo-js-node.herokuapp.com/
 
-## Author
+## ✍🏻 [Author]
 * Twitter : [@malsaslam97](https://twitter.com/malsaslam97)
 * Github: [@AssSam7](https://github.com/AssSam7)
 * LinkedIn: [Aslam Mohammed](https://www.linkedin.com/in/malsaslam97/)
+
+## 🥂 [Contributor]
+* Github: [@Saiteja](https://github.com/saiteja75)
+* LinkedIn: [Saiteja Kasam](https://www.linkedin.com/in/saiteja-kasam75/)
+
 
 ## Show your support
 Give a ⭐️ if this application has some credibility!

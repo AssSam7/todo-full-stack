@@ -12,6 +12,7 @@ if (port == null || port == "") {
 
 // Making our app able to access other folders
 app.use(express.static("public"));
+app.use(express.static("public/assets"));
 
 // Connection to the mongodb
 let connectionString =
@@ -52,7 +53,7 @@ app.get("/", passwordProtected, (req, res) => {
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Simple To-Do App</title>
+          <title>Simple ToDo App</title>
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
           <style>
             body {

@@ -76,8 +76,11 @@ document.addEventListener("click", function (e) {
       "Enter your desired new text",
       e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
     );
-    if (userInput && userInput.value !== "" &&
-    userInput.value.match(/^[a-zA-Z0-9]+/i)) {
+    if (
+      userInput &&
+      userInput.value !== "" &&
+      userInput.value.match(/^[a-zA-Z0-9]+/i)
+    ) {
       axios
         .post("/update-item", {
           text: userInput,
@@ -91,6 +94,8 @@ document.addEventListener("click", function (e) {
         .catch(function () {
           console.log("Please try again later.");
         });
+    } else {
+      window.alert("Sorry, Please try again!");
     }
   }
 });

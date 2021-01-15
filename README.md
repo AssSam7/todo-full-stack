@@ -23,7 +23,7 @@ server.js
 - Load data dynamically 
 
 ### 🔥 [Live]
-This app is deployed to heroku on the following bank
+This app is deployed to heroku on the following link
 
 **URL**: https://todo-js-node.herokuapp.com/
 
